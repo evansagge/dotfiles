@@ -10,6 +10,8 @@ ZSH_THEME="gallois"
 # Uncomment the following line to use case-sensitive completion.
 CASE_SENSITIVE="true"
 
+DEFAULT_USER='esagge'
+
 # Uncomment the following line to disable bi-weekly auto-update checks.
 # DISABLE_AUTO_UPDATE="true"
 
@@ -51,7 +53,6 @@ source $ZSH/oh-my-zsh.sh
 
 # User configuration
 
-export PATH="/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/mysql/bin"
 # export MANPATH="/usr/local/man:$MANPATH"
 
 # You may need to manually set your language environment
@@ -70,6 +71,9 @@ export PATH="/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/mysql/bin"
 # ssh
 # export SSH_KEY_PATH="~/.ssh/dsa_id"
 
+
+export PATH="/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/mysql/bin"
+export PATH=/usr/local/bin:$PATH:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/share/npm/bin:$HOME/.local/bin
 export EDITOR='vim'
 export TMUX_POWERLINE_SEG_WEATHER_LOCATION=12765846
 export LANG="en_US.UTF-8"
@@ -81,23 +85,22 @@ export LC_NUMERIC="en_US.UTF-8"
 export LC_TIME="en_US.UTF-8"
 export LC_ALL="en_US.UTF-8"
 export RUBYOPT="-W0"
+export SHABU_REPO=~/code/venmo/shabu
+export ATLAS_TOKEN="jTv5eKfZDsDYdg.atlasv1.gouIr9EkjWrg5YfRwN7QoraZdJyTHzz0eveXbYBMFxrGzgCnIukA4RdrOM4pIdxqyAA"
+export KEYTIMEOUT=1
+export POWERLINE_COMMAND=powerline
+export POWERLINE_REPOSITORY_ROOT='/usr/local/lib/python2.7/site-packages'
+
 alias chromium='open -a Chromium --args --disable-web-security'
 alias gitclean='git branch --merged | grep -v "\*" | xargs -n 1 git branch -d'
+alias vim='nvim'
 
-# Set personal aliases, overriding those provided by oh-my-zsh libs,
-# plugins, and themes. Aliases can be placed here, though oh-my-zsh
-# users are encouraged to define aliases within the ZSH_CUSTOM folder.
-# For a full list of active aliases, run `alias`.
-#
-# Example aliases
-# alias zshconfig="mate ~/.zshrc"
-# alias ohmyzsh="mate ~/.oh-my-zsh"
+source ~/.zsh/bindkey.zsh
+source ~/.zsh/venmo.zsh
+source /usr/local/bin/virtualenvwrapper.sh
+source /usr/local/lib/python2.7/site-packages/powerline/bindings/zsh/powerline.zsh
+
 if which rbenv > /dev/null; then eval "$(rbenv init -)"; fi
-
-[ -s "/Users/evansagge/.scm_breeze/scm_breeze.sh" ] && source "/Users/evansagge/.scm_breeze/scm_breeze.sh"
-
-### Added by the Heroku Toolbelt
-export PATH="/usr/local/heroku/bin:$PATH"
 
 [ -s "/Users/esagge/.scm_breeze/scm_breeze.sh" ] && source "/Users/esagge/.scm_breeze/scm_breeze.sh"
 
