@@ -27,14 +27,18 @@ Plugin 'airblade/vim-gitgutter'
 Plugin 'michaeljsmith/vim-indent-object'
 
 " Text snippets (use Ctrl+J to complete)
-" Bundle 'garbas/snipmate.vim'
+" Plugin 'garbas/snipmate.vim'
 
 " Status bar, similar to Powerline
 Plugin 'bling/vim-airline'
 Plugin 'vim-airline/vim-airline-themes'
 
 " Move seamlessly between tmux & other panes with ctrl+[hjkl]
-Bundle 'christoomey/vim-tmux-navigator'
+Plugin 'christoomey/vim-tmux-navigator'
+
+" Tmux integration
+Plugin 'benmills/vimux'
+Plugin 'dcosson/vimux-nose-test2'
 
 " Themes
 " Plugin 'altercation/vim-colors-solarized'
@@ -46,10 +50,10 @@ Plugin 'ervandew/supertab'
 
 " Syntax/language
 Plugin 'jmcantrell/vim-virtualenv'
-" Bundle 'groenewege/vim-less'
-" Bundle 'nono/vim-handlebars'
+" Plugin 'groenewege/vim-less'
+" Plugin 'nono/vim-handlebars'
 " Plugin 'afshinm/npm.vim'
-Plugin 'nvie/vim-flake8'
+" Plugin 'andviro/flake8-vim'
 Plugin 'davidhalter/jedi-vim'
 
 " Alignment
@@ -66,5 +70,8 @@ Plugin 'embear/vim-localvimrc'
 Plugin 'tmhedberg/SimpylFold'
 
 Plugin 'majutsushi/tagbar'
+
+" Plugin 'blueyed/vim-diminactive'
+" Plugin 'tmux-plugins/vim-tmux-focus-events'
 
 call vundle#end()

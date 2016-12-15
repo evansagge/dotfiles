@@ -47,7 +47,7 @@ COMPLETION_WAITING_DOTS="true"
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git ruby bundler gem tmux)
+plugins=(git ruby bundler gem tmux argcomplete)
 
 source $ZSH/oh-my-zsh.sh
 
@@ -74,7 +74,7 @@ source $ZSH/oh-my-zsh.sh
 
 export PATH="/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/mysql/bin"
 export PATH=/usr/local/bin:$PATH:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/share/npm/bin:$HOME/.local/bin
-export EDITOR='vim'
+export EDITOR='nvim'
 export TMUX_POWERLINE_SEG_WEATHER_LOCATION=12765846
 export LANG="en_US.UTF-8"
 export LC_COLLATE="en_US.UTF-8"

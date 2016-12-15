@@ -28,6 +28,7 @@ set softtabstop=2
 set synmaxcol=128
 set tabstop=8
 set timeoutlen=1000 ttimeoutlen=0
+set termguicolors
 set undodir=~/.vim/undofile/
 set undofile  " remember undo history
 set wildmenu  " fancy autocomplete for commands (try :color <tab> for demo)
@@ -39,3 +40,4 @@ set wildmode=longest,list,full
 set backupdir^=~/.vim/_backup/    " where to put backup files.
 set directory^=~/.vim/_temp/      " where to put swap files.
 
+let $NVIM_TUI_ENABLE_CURSOR_SHAPE=1

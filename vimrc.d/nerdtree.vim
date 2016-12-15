@@ -1,6 +1,6 @@
 " NERDTree
 map <leader>n :NERDTreeToggle<CR> :NERDTreeMirror<CR>
-nmap <leader>d :NERDTreeToggle<CR>
+" nmap <leader>d :NERDTreeToggle<CR>
 nmap <leader>f :NERDTreeFind<CR>
 
 let NERDTreeHijackNetrw = 0
@@ -15,7 +15,7 @@ let NERDTreeAutoDeleteBuffer=1
 " let NERDTreeChDirMode=0
 " let NERDTreeQuitOnOpen=0
 " let NERDTreeMouseMode=2
-" let NERDTreeShowHidden=1
+let NERDTreeShowHidden=1
 let NERDTreeIgnore=['\.pyc','\~$','\.swo$','\.swp$','\.git$','\.hg','\.svn','\.bzr', '\.DS_Store']
 " let NERDTreeKeepTreeInNewTab=1
 
