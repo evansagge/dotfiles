@@ -15,7 +15,8 @@ Plugin 'kien/ctrlp.vim'
 Plugin 'mileszs/ack.vim'
 
 " Linting (requires installing linters separately, i.e. pip install pep8 or npm install -g jshint)
-Plugin 'neomake/neomake'
+" Plugin 'neomake/neomake'
+Plugin 'w0rp/ale'
 
 " Git integration
 Plugin 'tpope/vim-fugitive'
@@ -43,7 +44,8 @@ Plugin 'dcosson/vimux-nose-test2'
 " Themes
 " Plugin 'altercation/vim-colors-solarized'
 " Plugin 'raphamorim/lucario'
-Plugin 'tomasr/molokai'
+" Plugin 'tomasr/molokai'
+Plugin 'carakan/new-railscasts-theme'
 
 " Perform all your vim insert mode completions with Tab
 Plugin 'ervandew/supertab'

@@ -8,6 +8,7 @@ map <leader>rc :call VimuxCloseRunner()<CR>
 
 map <leader>ra :call VimuxRunNoseAll()<CR>
 map <leader>rF :call VimuxRunNoseFile()<CR>
+map <leader>rC :call VimuxRunNoseFocusClass()<CR>
 map <leader>rf :call VimuxRunNoseFocus()<CR>
 map <leader>rl :call VimuxRunNoseLine()<CR>
 map <leader>rr :call VimuxRunLastCommand()<CR>
@@ -29,8 +30,19 @@ function! VimuxRunNoseFocus()
   call VimuxRunCommand("nosetests " . g:vimux_nose_options . " " . expand("%") . ":" . test_focus)
 endfunction
 
+function! VimuxRunNoseFocusClass()
+  let test_focus = _nose_test_search("class ")
+
+  if test_focus == ""
+    echoerr "Couldn't find test class to run focused test."
+    return
+  endif
+
+  call VimuxRunCommand("nosetests " . g:vimux_nose_options . " " . expand("%") . ":" . test_focus)
+endfunction
+
 function! _nose_test_search(fragment)
-  let line_num = search(a:fragment, "bcsW")
+  let line_num = search(a:fragment, "bsW")
   if line_num > 0
     ''
     return split(split(getline(line_num), " ")[1], "(")[0]

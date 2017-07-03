@@ -7,7 +7,9 @@ endfor
 syntax on
 set background=dark
 let g:rehash256 = 1
-colorscheme molokai
+set termguicolors
+colorscheme new-railscasts
+
 filetype on
 filetype plugin indent on
 

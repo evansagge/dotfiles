@@ -24,6 +24,9 @@ set shiftwidth=2
 set showcmd  " extra info in the bottom bar when in visual mode
 set showmatch
 set smartcase
+set splitbelow
+set splitright
+set completeopt=noselect,menuone
 set softtabstop=2
 set synmaxcol=128
 set tabstop=8

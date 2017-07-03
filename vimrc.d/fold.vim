@@ -4,8 +4,8 @@ let g:SimpylFold_fold_import = 0
 
 " autocmd BufWinEnter *.py setlocal foldexpr=SimpylFold(v:lnum) foldmethod=expr
 " autocmd BufWinLeave *.py setlocal foldexpr< foldmethod<
-au WinEnter * set nofen
-au WinLeave * set nofen
+" au WinEnter * set nofen " unfold on focus open
+" au WinLeave * set nofen " unfold on focus close
 
 set foldlevel=20
 set foldlevelstart=20
