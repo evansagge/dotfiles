@@ -89,7 +89,6 @@ export LC_ALL="en_US.UTF-8"
 export RUBYOPT="-W0"
 export SHABU_REPO=~/code/venmo/shabu
 export ATLAS_TOKEN="cFlcB4vtyuOXQw.atlasv1.5Fk5tfeZbN8LyQ1v3gzWHoWfQrkCy8gsDwpXpSU3sBbl9UAS6bYgMfTS0HLwZfXxRAo"
-export VAGRANT_SERVER_URL="https://app.vagrantup.com"
 export KEYTIMEOUT=1
 export POWERLINE_COMMAND=powerline
 export POWERLINE_REPOSITORY_ROOT='/usr/local/lib/python2.7/site-packages'
@@ -100,7 +99,7 @@ alias vim='nvim'
 
 source ~/.zsh/bindkey.zsh
 source ~/.zsh/venmo.zsh
-source /usr/local/bin/virtualenvwrapper.sh
+# source /usr/local/bin/virtualenvwrapper.sh
 # source /usr/local/lib/python2.7/site-packages/powerline/bindings/zsh/powerline.zsh
 
 if which rbenv > /dev/null; then eval "$(rbenv init -)"; fi

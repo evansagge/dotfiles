@@ -25,6 +25,6 @@ autocmd BufEnter * if (winnr('$') == 1 && &buftype ==# 'quickfix' ) |
             \   q | endif
 
 let g:ale_sign_column_always = 1
-let g:ale_python_flake8_args = '-m flake8 --max-line-length=120'
+let g:ale_python_flake8_args = '-m flake8 --max-line-length=180'
 let g:ale_python_flake8_executable = 'python'
-let g:ale_python_flake8_options = '-m flake8 --max-line-length=120'
+let g:ale_python_flake8_options = '-m flake8 --max-line-length=180'
