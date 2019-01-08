@@ -1,3 +1,5 @@
+export PATH=$HOME/bin:/usr/local/bin:$PATH
+
 # Path to your oh-my-zsh installation.
 export ZSH=$HOME/.oh-my-zsh
 
@@ -73,8 +75,13 @@ source $ZSH/oh-my-zsh.sh
 # ssh
 # export SSH_KEY_PATH="~/.ssh/dsa_id"
 
+## Usage: compresspdf [input file] [output file] [screen*|ebook|printer|prepress]
+compresspdf() {
+    /usr/local/bin/gs -sDEVICE=pdfwrite -dNOPAUSE -dQUIET -dBATCH -dPDFSETTINGS=/${3:-"screen"} -dCompatibilityLevel=1.4 -sOutputFile="$2" "$1"
+}
 
-export PATH="/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/mysql/bin"
+
+export PATH="/usr/local/opt/python/libexec/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/mysql/bin:$PATH"
 export PATH=/usr/local/bin:$PATH:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/share/npm/bin:$HOME/.local/bin
 export EDITOR='nvim'
 export TMUX_POWERLINE_SEG_WEATHER_LOCATION=12765846
@@ -99,10 +106,11 @@ alias vim='nvim'
 
 source ~/.zsh/bindkey.zsh
 source ~/.zsh/venmo.zsh
-# source /usr/local/bin/virtualenvwrapper.sh
+source /usr/local/bin/virtualenvwrapper.sh
 # source /usr/local/lib/python2.7/site-packages/powerline/bindings/zsh/powerline.zsh
 
 if which rbenv > /dev/null; then eval "$(rbenv init -)"; fi
 
 [ -s "/Users/esagge/.scm_breeze/scm_breeze.sh" ] && source "/Users/esagge/.scm_breeze/scm_breeze.sh"
+
 

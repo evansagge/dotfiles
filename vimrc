@@ -59,3 +59,4 @@ au BufRead,BufNewFile {Gemfile,Rakefile,Vagrantfile,Thorfile,Procfile,Guardfile,
 au BufRead,BufNewFile *.thor set filetype=ruby
 
 nnoremap <silent> <BS> :TmuxNavigateLeft<cr>
+

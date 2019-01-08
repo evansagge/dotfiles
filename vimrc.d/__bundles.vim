@@ -76,4 +76,7 @@ Plugin 'majutsushi/tagbar'
 " Plugin 'blueyed/vim-diminactive'
 " Plugin 'tmux-plugins/vim-tmux-focus-events'
 
+Plugin 'posva/vim-vue'
+Plugin 'severin-lemaignan/vim-minimap'
+
 call vundle#end()

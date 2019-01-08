@@ -14,6 +14,9 @@ set wildignore+=*/tmp/librarian/*,*/.vagrant/*,*/.kitchen/*,*/vendor/cookbooks/*
 " Ignore rails temporary asset caches
 set wildignore+=*/tmp/cache/assets/*/sprockets/*,*/tmp/cache/assets/*/sass/*
 
+set wildignore+=*/cassettes/*.yaml*
+
+
 " Disable temp and backup files
 set wildignore+=*.swp,*~,._*
 
