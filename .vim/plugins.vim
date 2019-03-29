@@ -12,8 +12,8 @@ Plug 'tpope/vim-sensible'
 
 " Project management
 Plug 'scrooloose/nerdtree', { 'on': 'NERDTreeToggle' } " File browser
-Plug 'kien/ctrlp.vim' " Fuzzy finder
-Plug 'tomtom/tcomment_vim' " Commenting
+Plug 'kien/ctrlp.vim'                                  " Fuzzy finder
+Plug 'tomtom/tcomment_vim'                             " Commenting
 
 " Color themes
 Plug 'dracula/vim', { 'as': 'dracula' }
@@ -31,5 +31,18 @@ Plug 'vim-airline/vim-airline-themes'
 
 " Tmux integration
 Plug 'christoomey/vim-tmux-navigator'
+Plug 'tmux-plugins/vim-tmux-focus-events'
+Plug 'tmux-plugins/vim-tmux'
+
+" Git integration
+Plug 'tpope/vim-fugitive'
+Plug 'airblade/vim-gitgutter'
+Plug 'christoomey/vim-conflicted'
+
+" Quality of life
+Plug 'ervandew/supertab'                            " Tab completion
+Plug 'godlygeek/tabular'                            " Tab alignment
+Plug 'tpope/vim-surround'                           " Surround with quotes/brackets/delimiters/etc
+Plug 'terryma/vim-multiple-cursors'                 " Allows editing multiple lines like sublime
 
 call plug#end()

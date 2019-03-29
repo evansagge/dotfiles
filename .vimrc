@@ -32,8 +32,8 @@ set wildmenu  " fancy autocomplete for commands (try :color <tab> for demo)
 set wildmode=longest,list,full
 
 " Backups, swaps, undos
-set backupdir^=~/.vim/_backup/    " where to put backup files.
-set directory^=~/.vim/_temp/      " where to put swap files.
+set nobackup
+set noswapfile
 set undodir=~/.vim/undofile/
 set undofile  " remember undo history
 
