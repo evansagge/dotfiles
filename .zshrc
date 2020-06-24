@@ -1,5 +1,4 @@
 alias tmux="tmux -2 -u"
-
 if which tmux 2>&1 >/dev/null; then
   test -z "$TMUX" && (tmux attach || tmux new-session)
 fi
@@ -12,7 +11,9 @@ export ZSH="/home/evansagge/.oh-my-zsh"
 export TERM=xterm-256color
 export NVM_LAZY_LOAD=true
 
-ZSH_THEME="gallois"
+export ZSH_THEME="gallois"
+# export ZSH_THEME="powerlevel9k/powerlevel9k"
+
 
 CASE_SENSITIVE="true"
 
@@ -60,7 +61,8 @@ COMPLETION_WAITING_DOTS="true"
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
 plugins=(git ruby bundler gem tmux)
-plugins+=(zsh-nvm)
+# plugins+=(zsh-nvm)
+# plugins+=(zsh-rbenv)
 
 source $ZSH/oh-my-zsh.sh
 
@@ -81,15 +83,25 @@ export EDITOR='vim'
 
 alias gitclean='git branch --merged | grep -v "\*" | xargs -n 1 git branch -d'
 alias vim=nvim
-
-#powerline
-if [[ -r /usr/local/lib/python2.7/dist-packages/powerline/bindings/zsh/powerline.zsh ]]; then
-  source /usr/local/lib/python2.7/dist-packages/powerline/bindings/zsh/powerline.zsh
-fi
+alias open='wsl-open'
+alias python=python3
+alias pip=pip3
 
 # rbenv
 export PATH="$HOME/.rbenv/bin:$PATH"
+export PATH="$HOME/.rbenv/plugins/ruby-build/bin:$PATH"
 if which rbenv > /dev/null; then eval "$(rbenv init -)"; fi
+
+# nvm
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+
 
 # git shortcuts
 [ -s "/home/evansagge/.scm_breeze/scm_breeze.sh" ] && source "/home/evansagge/.scm_breeze/scm_breeze.sh"
+
+#powerline
+if [[ -r /usr/local/lib/python3.8/dist-packages/powerline/bindings/zsh/powerline.zsh ]]; 
+  then source /usr/local/lib/python3.8/dist-packages/powerline/bindings/zsh/powerline.zsh
+fi

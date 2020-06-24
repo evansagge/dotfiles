@@ -2,5 +2,7 @@ syntax on
 set background=dark
 set termguicolors
 
-colorscheme dracula
+let g:solarized_use16 = 1
+
+colorscheme solarized8
 

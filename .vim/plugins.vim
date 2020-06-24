@@ -18,9 +18,14 @@ Plug 'tomtom/tcomment_vim'                             " Commenting
 " Color themes
 Plug 'dracula/vim', { 'as': 'dracula' }
 Plug 'nanotech/jellybeans.vim'
+Plug 'lifepillar/vim-solarized8'
 
 " Syntax highlighting
 Plug 'sheerun/vim-polyglot'
+Plug 'posva/vim-vue'
+
+" Linting
+Plug 'w0rp/ale'
 
 " Search
 Plug 'mileszs/ack.vim'
