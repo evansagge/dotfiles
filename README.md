@@ -17,23 +17,16 @@ Change default shell to zsh: https://evalcode.com/zsh-default-wsl-windows-10/
 chsh -s $(which zsh)
 ```
 
-Install WSLTTY
-==
-https://github.com/mintty/wsltty/releases
-
-
 Install TMUX
 ==
 ```
 sudo apt-get install tmux
 ```
-Make tmux run by default (add to the top of ~/.zshrc)
-```
-alias tmux="tmux -2 -u"
 
-if which tmux 2>&1 >/dev/null; then
-    test -z "$TMUX" && (tmux attach || tmux new-session)
-fi
+Install Tmux plugin manager
+==
+```
+git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
 ```
 
 Install Powerline
@@ -42,24 +35,13 @@ Install Powerline
 sudo apt-get install python-pip
 sudo pip install powerline-status
 ```
-Add powerline to ZSH (.zshrc)
-```
-if [[ -r /usr/local/lib/python2.7/dist-packages/powerline/bindings/zsh/powerline.zsh ]]; then
-        source /usr/local/lib/python2.7/dist-packages/powerline/bindings/zsh/powerline.zsh
-fi
-```
 
-Set TMUX to use ZSH and Powerline
+Link .zhrc and .tmux.conf to home directory
 ==
-In ~/.tmux.conf
 ```
-set-option -g default-shell /bin/zsh
-
-set-environment -g POWERLINE_CONFIG_COMMAND /usr/local/bin/powerline-config
-
-run-shell "powerline-daemon -q"
-
-source "/usr/local/lib/python2.7/dist-packages/powerline/bindings/tmux/powerline.conf"
+cd ~
+ln -nfs ~/dev/evansagge/dotfiles/.zshrc
+ln -nfs ~/dev/evansagge/dotfiles/.tmux.conf
 ```
 
 Installing & Configuring Git & Github
@@ -118,17 +100,10 @@ vim
 :PluginInstall
 ```
 
-Configure Tmux to Work with Vim
-==
-Install Tmux plugin manager
-```
-git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
-```
-Set .tmux.conf
-```
-ln -nfs ~/dev/dotfiles/tmux.conf .tmux.conf
-```
-
 Install scm_breeze
 ==
 https://github.com/scmbreeze/scm_breeze
+
+Install nerd fonts
+==
+https://github.com/ryanoasis/nerd-fonts
