@@ -7,7 +7,7 @@ fi
 export PATH=$HOME/bin:/usr/local/bin:$PATH
 
 # Path to your oh-my-zsh installation.
-export ZSH="/home/evansagge/.oh-my-zsh"
+export ZSH="$HOME/.oh-my-zsh"
 export TERM=xterm-256color
 export NVM_LAZY_LOAD=true
 
@@ -99,9 +99,17 @@ export NVM_DIR="$HOME/.nvm"
 
 
 # git shortcuts
-[ -s "/home/evansagge/.scm_breeze/scm_breeze.sh" ] && source "/home/evansagge/.scm_breeze/scm_breeze.sh"
+[ -s "$HOME/.scm_breeze/scm_breeze.sh" ] && source "$HOME/.scm_breeze/scm_breeze.sh"
+
+if [[ -r /usr/local/lib/python3.8/dist-packages/ ]];
+then 
+  export PYTHON3_PACKAGES='/usr/local/lib/python3.8/dist-packages/'
+else
+  export PYTHON3_PACKAGES='/usr/local/lib/python3.8/site-packages/'
+fi
 
 #powerline
-if [[ -r /usr/local/lib/python3.8/dist-packages/powerline/bindings/zsh/powerline.zsh ]]; 
-  then source /usr/local/lib/python3.8/dist-packages/powerline/bindings/zsh/powerline.zsh
+if [[ -r $PYTHON3_PACKAGES/powerline/bindings/zsh/powerline.zsh ]]; 
+  then source $PYTHON3_PACKAGES/powerline/bindings/zsh/powerline.zsh
 fi
+[ -s "/Users/evan.sagge/.scm_breeze/scm_breeze.sh" ] && source "/Users/evan.sagge/.scm_breeze/scm_breeze.sh"
