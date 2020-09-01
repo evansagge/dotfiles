@@ -4,14 +4,14 @@ if which tmux 2>&1 >/dev/null; then
 fi
 
 # If you come from bash you might have to change your $PATH.
-export PATH=$HOME/bin:/usr/local/bin:$PATH
+export PATH=$HOME/.rbenv/bin:$HOME/.local/bin:$HOME/bin:/usr/local/bin:$PATH
 
 # Path to your oh-my-zsh installation.
 export ZSH="$HOME/.oh-my-zsh"
-export TERM=xterm-256color
-export NVM_LAZY_LOAD=true
+# export TERM=xterm-256color
+# export NVM_LAZY_LOAD=true
 
-export ZSH_THEME="gallois"
+export ZSH_THEME="candy"
 # export ZSH_THEME="powerlevel9k/powerlevel9k"
 
 
@@ -60,9 +60,7 @@ COMPLETION_WAITING_DOTS="true"
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git ruby bundler gem tmux)
-# plugins+=(zsh-nvm)
-# plugins+=(zsh-rbenv)
+plugins=(git rbenv ruby gem tmux nvm npm node docker)
 
 source $ZSH/oh-my-zsh.sh
 
@@ -78,25 +76,11 @@ export EDITOR='vim'
 # Compilation flags
 # export ARCHFLAGS="-arch x86_64"
 
-# ssh
-# export SSH_KEY_PATH="~/.ssh/rsa_id"
-
 alias gitclean='git branch --merged | grep -v "\*" | xargs -n 1 git branch -d'
 alias vim=nvim
 alias open='wsl-open'
 alias python=python3
 alias pip=pip3
-
-# rbenv
-export PATH="$HOME/.rbenv/bin:$PATH"
-export PATH="$HOME/.rbenv/plugins/ruby-build/bin:$PATH"
-if which rbenv > /dev/null; then eval "$(rbenv init -)"; fi
-
-# nvm
-export NVM_DIR="$HOME/.nvm"
-[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
-[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
-
 
 # git shortcuts
 [ -s "$HOME/.scm_breeze/scm_breeze.sh" ] && source "$HOME/.scm_breeze/scm_breeze.sh"
@@ -112,4 +96,11 @@ fi
 if [[ -r $PYTHON3_PACKAGES/powerline/bindings/zsh/powerline.zsh ]]; 
   then source $PYTHON3_PACKAGES/powerline/bindings/zsh/powerline.zsh
 fi
-[ -s "/Users/evan.sagge/.scm_breeze/scm_breeze.sh" ] && source "/Users/evan.sagge/.scm_breeze/scm_breeze.sh"
+
+# homebrew
+if [[-r /home/linuxbrew/.linuxbrew]];
+then
+  eval "$(/home/linuxbrew/.linuxbrew/bin/rbenv init -)"
+  eval $(/home/linuxbrew/.linuxbrew/bin/brew shellenv)
+  export RUBY_CONFIGURE_OPTS="--with-openssl-dir=$(brew --prefix openssl@1.1)"
+fi

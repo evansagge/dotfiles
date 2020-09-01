@@ -26,23 +26,51 @@
 
     bootstrap_before = "settings#before"
     bootstrap_after = "settings#after"
+    default_indent = 2
+    expand_tab = false
+
+[[layers]]
+		name = 'edit'
 
 # Enable autocomplete layer
 [[layers]]
-name = 'autocomplete'
-auto_completion_return_key_behavior = "complete"
-auto_completion_tab_key_behavior = "smart"
+    name = 'autocomplete'
+    auto_completion_return_key_behavior = "complete"
+    auto_completion_tab_key_behavior = "smart"
 
 [[layers]]
-name = 'shell'
-default_position = 'top'
-default_height = 30
+    name = 'shell'
+    default_position = 'top'
+    default_height = 30
 
 [[layers]]
-name = 'denite'
+    name = 'denite'
 
 [[layers]]
-name = 'tmux'
+  name = "lang#python"
+  format_on_save = 1
 
 [[layers]]
-name = 'test'
+  name = "lang#ruby"
+
+[[layers]]
+    name = 'tmux'
+
+[[layers]]
+    name = 'test'
+
+[[custom_plugins]]
+    repo = 'tpope/vim-projectionist'
+    merged = false
+
+[[custom_plugins]]
+    repo = "tpope/vim-dispatch"
+    merged = false
+
+[[custom_plugins]]
+    repo = "benmills/vimux"
+    merged = false
+
+[[custom_plugins]]
+    repo = "terryma/vim-multiple-cursors"
+    merged = false
