@@ -128,3 +128,7 @@ Set .tmux.conf
 ```
 ln -nfs ~/dev/dotfiles/tmux.conf .tmux.conf
 ```
+
+Install scm_breeze
+==
+https://github.com/scmbreeze/scm_breeze
