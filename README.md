@@ -102,8 +102,12 @@ vim
 
 Install scm_breeze
 ==
-https://github.com/scmbreeze/scm_breeze
+```
+git clone git://github.com/scmbreeze/scm_breeze.git ~/.scm_breeze
+~/.scm_breeze/install.sh
+source ~/.bashrc   # or source "${ZDOTDIR:-$HOME}/.zshrc"
+```
 
-Install nerd fonts
+Install nerd fonts (for Hack Nerd Font)
 ==
 https://github.com/ryanoasis/nerd-fonts
