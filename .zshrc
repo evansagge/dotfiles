@@ -1,10 +1,17 @@
-alias tmux="tmux -2 -u"
-if which tmux 2>&1 >/dev/null; then
-  test -z "$TMUX" && (tmux attach || tmux new-session)
+if [[ -r /usr/local/lib/python3.8/dist-packages/ ]];
+then 
+  export PYTHON3_PACKAGES='/usr/local/lib/python3.8/dist-packages/'
+else
+  export PYTHON3_PACKAGES='/usr/local/lib/python3.8/site-packages/'
 fi
 
 # If you come from bash you might have to change your $PATH.
 export PATH=$HOME/.rbenv/bin:$HOME/.local/bin:$HOME/bin:/usr/local/bin:$PATH
+
+alias tmux="tmux -2 -u"
+if which tmux 2>&1 >/dev/null; then
+  test -z "$TMUX" && (tmux attach || tmux new-session)
+fi
 
 # Path to your oh-my-zsh installation.
 export ZSH="$HOME/.oh-my-zsh"
@@ -78,19 +85,12 @@ export EDITOR='vim'
 
 alias gitclean='git branch --merged | grep -v "\*" | xargs -n 1 git branch -d'
 alias vim=nvim
-alias open='wsl-open'
+# alias open='wsl-open'
 alias python=python3
 alias pip=pip3
 
 # git shortcuts
 [ -s "$HOME/.scm_breeze/scm_breeze.sh" ] && source "$HOME/.scm_breeze/scm_breeze.sh"
-
-if [[ -r /usr/local/lib/python3.8/dist-packages/ ]];
-then 
-  export PYTHON3_PACKAGES='/usr/local/lib/python3.8/dist-packages/'
-else
-  export PYTHON3_PACKAGES='/usr/local/lib/python3.8/site-packages/'
-fi
 
 #powerline
 if [[ -r $PYTHON3_PACKAGES/powerline/bindings/zsh/powerline.zsh ]]; 
@@ -98,9 +98,15 @@ if [[ -r $PYTHON3_PACKAGES/powerline/bindings/zsh/powerline.zsh ]];
 fi
 
 # homebrew
-if [[-r /home/linuxbrew/.linuxbrew]];
+if [[ -r /home/linuxbrew/.linuxbrew ]];
 then
   eval "$(/home/linuxbrew/.linuxbrew/bin/rbenv init -)"
   eval $(/home/linuxbrew/.linuxbrew/bin/brew shellenv)
   export RUBY_CONFIGURE_OPTS="--with-openssl-dir=$(brew --prefix openssl@1.1)"
 fi
+
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+
+[ -s "$HOME/dev/nurx/api/.bashrc" ] && \. "$HOME/dev/nurx/api/.bashrc"
