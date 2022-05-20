@@ -1,5 +1,15 @@
 function! settings#before() abort
   set clipboard+=unnamedplus
+
+
+  let g:airline_powerline_fonts = 1
+  let g:airline#extensions#tmuxline#enabled = 0
+  let g:airline#extensions#tabline#enabled = 1
+  let g:airline#extensions#tabline#formatter = 'unique_tail'
+
+  let g:airline_theme='simple'
+
+  let g:startify_custom_header = ''
 endfunction
 
 function! settings#after() abort
@@ -15,4 +25,5 @@ function! settings#after() abort
   set directory=~/.vim/backup/
   set noswapfile
   set nobackup
+
 endfunction

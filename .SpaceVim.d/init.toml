@@ -18,8 +18,17 @@
     enable_guicolors = true
     # Disable statusline separator, if you want to use other value, please
     # install nerd fonts
-    statusline_separator = "arrow"
-    statusline_inactive_separator = "arrow"
+    # statusline_separator = "arrow"
+    # statusline_inactive_separator = "arrow"
+    # statusline_left_sections = [
+    #    'winnr',
+    #    'major mode',
+    #    'filename',
+    #    'fileformat',
+    #    'minor mode lighters',
+    #    'version control info',
+    #    'search status'
+    # ]
     buffer_index_type = 4
     enable_tabline_filetype_icon = true
     enable_statusline_mode = false
@@ -32,21 +41,35 @@
     relativenumber = false
 
 [[layers]]
-		name = 'edit'
+  name = "core#statusline"
+  enable = false
+
+[[layers]]
+  name = "core#tabline"
+  enable = false
+
+[[layers]]
+  name = 'edit'
 
 # Enable autocomplete layer
 [[layers]]
-    name = 'autocomplete'
-    auto_completion_return_key_behavior = "complete"
-    auto_completion_tab_key_behavior = "smart"
+  name = 'autocomplete'
+  auto_completion_return_key_behavior = "complete"
+  auto_completion_tab_key_behavior = "smart"
 
 [[layers]]
-    name = 'shell'
-    default_position = 'top'
-    default_height = 30
+  name = 'shell'
+  default_position = 'top'
+  default_height = 30
 
 [[layers]]
-    name = 'denite'
+  name = 'denite'
+
+[[layers]]
+  name = 'lang#typescript'
+
+[[layers]]
+  name = 'lang#javascript'
 
 [[layers]]
   name = "lang#python"
@@ -65,20 +88,40 @@
   name = 'github'
 
 [[layers]]
-    name = 'test'
+  name = 'test'
 
 [[custom_plugins]]
-    repo = 'tpope/vim-projectionist'
-    merged = false
+  repo = 'tpope/vim-projectionist'
+  merged = false
 
 [[custom_plugins]]
-    repo = "tpope/vim-dispatch"
-    merged = false
+  repo = "tpope/vim-dispatch"
+  merged = false
 
 [[custom_plugins]]
-    repo = "benmills/vimux"
-    merged = false
+  repo = "benmills/vimux"
+  merged = false
 
 [[custom_plugins]]
-    repo = "terryma/vim-multiple-cursors"
-    merged = false
+  repo = "terryma/vim-multiple-cursors"
+  merged = false
+
+[[custom_plugins]]
+  repo = "mustache/vim-mustache-handlebars"
+  merged = false
+
+[[custom_plugins]]
+  repo = "tpope/vim-fugitive"
+  merged = false
+
+[[custom_plugins]]
+  repo = "tommcdo/vim-fugitive-blame-ext"
+  merged = false
+
+[[custom_plugins]]
+  repo = "vim-airline/vim-airline"
+  merged = false
+
+[[custom_plugins]]
+  repo = "vim-airline/vim-airline"
+  merged = false

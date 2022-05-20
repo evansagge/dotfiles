@@ -1,25 +1,24 @@
 if [[ -r /usr/local/lib/python3.8/dist-packages/ ]];
-then 
+then
   export PYTHON3_PACKAGES='/usr/local/lib/python3.8/dist-packages/'
 else
   export PYTHON3_PACKAGES='/usr/local/lib/python3.8/site-packages/'
 fi
 
 # If you come from bash you might have to change your $PATH.
-export PATH=$HOME/.rbenv/bin:$HOME/.local/bin:$HOME/bin:/usr/local/bin:$PATH
+export PATH=/usr/local/bin/rubocop-daemon-wrapper:$HOME/~/.nvm/versions/node/v12.16.1/bin:$HOME/.rbenv/bin:$HOME/.local/bin:$HOME/bin:/usr/local/bin:$PATH
 
-alias tmux="tmux -2 -u"
+# alias tmux="tmux -2 -u"
 if which tmux 2>&1 >/dev/null; then
   test -z "$TMUX" && (tmux attach || tmux new-session)
 fi
 
 # Path to your oh-my-zsh installation.
 export ZSH="$HOME/.oh-my-zsh"
-# export TERM=xterm-256color
-# export NVM_LAZY_LOAD=true
-
 export ZSH_THEME="candy"
-# export ZSH_THEME="powerlevel9k/powerlevel9k"
+
+export NVM_LAZY_LOAD=true
+export NVM_AUTO_USE=true
 
 
 CASE_SENSITIVE="true"
@@ -67,7 +66,7 @@ COMPLETION_WAITING_DOTS="true"
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git rbenv ruby gem tmux nvm npm node docker)
+plugins=(git rbenv ruby gem npm node docker zsh-nvm)
 
 source $ZSH/oh-my-zsh.sh
 
@@ -88,12 +87,13 @@ alias vim=nvim
 # alias open='wsl-open'
 alias python=python3
 alias pip=pip3
+alias bx='bundle exec'
 
 # git shortcuts
 [ -s "$HOME/.scm_breeze/scm_breeze.sh" ] && source "$HOME/.scm_breeze/scm_breeze.sh"
 
 #powerline
-if [[ -r $PYTHON3_PACKAGES/powerline/bindings/zsh/powerline.zsh ]]; 
+if [[ -r $PYTHON3_PACKAGES/powerline/bindings/zsh/powerline.zsh ]];
   then source $PYTHON3_PACKAGES/powerline/bindings/zsh/powerline.zsh
 fi
 
@@ -107,6 +107,56 @@ fi
 
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
-[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 
-[ -s "$HOME/dev/nurx/api/.bashrc" ] && \. "$HOME/dev/nurx/api/.bashrc"
+# [[ -n "$ZSH_NVM_AUTOLOAD" ]] || ZSH_NVM_AUTOLOAD=false
+
+# load-nvmrc() {
+# 	local node_version="$(nvm version)"
+# 	local nvmrc_path="$(nvm_find_nvmrc)"
+
+# 	if [ -n "$nvmrc_path" ]
+# 	then
+# 		local nvmrc_node_version=$(nvm version "$(cat "${nvmrc_path}")")
+
+# 		if [ "$nvmrc_node_version" = "N/A" ]
+# 		then
+# 			nvm install
+# 		fi
+
+# 		if [ "$nvmrc_node_version" != "$node_version" ]
+# 		then
+# 			nvm use
+# 		fi
+# 	elif [ "$node_version" != "$(nvm version default)" ]
+# 	then
+# 		echo "Reverting to nvm default version"
+# 		nvm use default
+# 	fi
+# }
+
+
+# export NVM_DIR=~/.nvm
+# [[ -s "$NVM_DIR/nvm.sh" ]] && source "$NVM_DIR/nvm.sh" --no-use
+
+# autoload -U add-zsh-hook
+# load-nvmrc() {
+#   local node_version="$(nvm version)"
+#   local nvmrc_path="$(nvm_find_nvmrc)"
+
+#   if [ -n "$nvmrc_path" ]; then
+#     local nvmrc_node_version=$(nvm version "$(cat "${nvmrc_path}")")
+
+#     if [ "$nvmrc_node_version" = "N/A" ]; then
+#       nvm install
+#     elif [ "$nvmrc_node_version" != "$node_version" ]; then
+#       nvm use
+#     fi
+#   elif [ "$node_version" != "$(nvm version default)" ]; then
+#     echo "Reverting to nvm default version"
+#     nvm use default
+#   fi
+# }
+# add-zsh-hook chpwd load-nvmrc
+# load-nvmrc
+
+# [ -s "$HOME/dev/nurx/api/.bashrc" ] && \. "$HOME/dev/nurx/api/.bashrc"
