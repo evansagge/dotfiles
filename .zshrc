@@ -1,25 +1,41 @@
+# Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.zshrc.
+# Initialization code that may require console input (password prompts, [y/n]
+# confirmations, etc.) must go above this block; everything else may go below.
+if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
+  source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
+fi
+
 if [[ -r /usr/local/lib/python3.8/dist-packages/ ]];
 then
   export PYTHON3_PACKAGES='/usr/local/lib/python3.8/dist-packages/'
-else
+elif [[ -r /usr/local/lib/python3.8/site-packages/ ]];
+then
   export PYTHON3_PACKAGES='/usr/local/lib/python3.8/site-packages/'
+elif [[ -r $HOME/Library/Python/3.8/lib/python/site-packages ]];
+then
+  export PYTHON3_PACKAGES=$HOME/Library/Python/3.8/lib/python/site-packages
 fi
 
 # If you come from bash you might have to change your $PATH.
-export PATH=/usr/local/bin/rubocop-daemon-wrapper:$HOME/~/.nvm/versions/node/v12.16.1/bin:$HOME/.rbenv/bin:$HOME/.local/bin:$HOME/bin:/usr/local/bin:$PATH
+export PATH=/usr/local/bin:$HOME/Library/Python/3.8/bin:$PATH
 
-# alias tmux="tmux -2 -u"
+export GITHUB_ACCESS_TOKEN="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"
+export GITHUB_USERNAME="evansagge"
+
+alias tmux="tmux -2 -u"
 if which tmux 2>&1 >/dev/null; then
   test -z "$TMUX" && (tmux attach || tmux new-session)
 fi
 
 # Path to your oh-my-zsh installation.
 export ZSH="$HOME/.oh-my-zsh"
-export ZSH_THEME="candy"
+# export ZSH_THEME="candy"
+export ZSH_THEME="juanghurtado"
+export ZSH_THEME="powerlevel10k/powerlevel10k"
+
 
 export NVM_LAZY_LOAD=true
 export NVM_AUTO_USE=true
-
 
 CASE_SENSITIVE="true"
 
@@ -84,18 +100,15 @@ export EDITOR='vim'
 
 alias gitclean='git branch --merged | grep -v "\*" | xargs -n 1 git branch -d'
 alias vim=nvim
-# alias open='wsl-open'
-alias python=python3
-alias pip=pip3
 alias bx='bundle exec'
 
 # git shortcuts
 [ -s "$HOME/.scm_breeze/scm_breeze.sh" ] && source "$HOME/.scm_breeze/scm_breeze.sh"
 
 #powerline
-if [[ -r $PYTHON3_PACKAGES/powerline/bindings/zsh/powerline.zsh ]];
-  then source $PYTHON3_PACKAGES/powerline/bindings/zsh/powerline.zsh
-fi
+# if [[ -r $PYTHON3_PACKAGES/powerline/bindings/zsh/powerline.zsh ]];
+#   then source $PYTHON3_PACKAGES/powerline/bindings/zsh/powerline.zsh
+# fi
 
 # homebrew
 if [[ -r /home/linuxbrew/.linuxbrew ]];
@@ -108,55 +121,10 @@ fi
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
 
-# [[ -n "$ZSH_NVM_AUTOLOAD" ]] || ZSH_NVM_AUTOLOAD=false
+[ -s "/Users/evan.sagge/.scm_breeze/scm_breeze.sh" ] && source "/Users/evan.sagge/.scm_breeze/scm_breeze.sh"
 
-# load-nvmrc() {
-# 	local node_version="$(nvm version)"
-# 	local nvmrc_path="$(nvm_find_nvmrc)"
+# heroku autocomplete setup
+HEROKU_AC_ZSH_SETUP_PATH=/Users/evan.sagge/Library/Caches/heroku/autocomplete/zsh_setup && test -f $HEROKU_AC_ZSH_SETUP_PATH && source $HEROKU_AC_ZSH_SETUP_PATH;
 
-# 	if [ -n "$nvmrc_path" ]
-# 	then
-# 		local nvmrc_node_version=$(nvm version "$(cat "${nvmrc_path}")")
-
-# 		if [ "$nvmrc_node_version" = "N/A" ]
-# 		then
-# 			nvm install
-# 		fi
-
-# 		if [ "$nvmrc_node_version" != "$node_version" ]
-# 		then
-# 			nvm use
-# 		fi
-# 	elif [ "$node_version" != "$(nvm version default)" ]
-# 	then
-# 		echo "Reverting to nvm default version"
-# 		nvm use default
-# 	fi
-# }
-
-
-# export NVM_DIR=~/.nvm
-# [[ -s "$NVM_DIR/nvm.sh" ]] && source "$NVM_DIR/nvm.sh" --no-use
-
-# autoload -U add-zsh-hook
-# load-nvmrc() {
-#   local node_version="$(nvm version)"
-#   local nvmrc_path="$(nvm_find_nvmrc)"
-
-#   if [ -n "$nvmrc_path" ]; then
-#     local nvmrc_node_version=$(nvm version "$(cat "${nvmrc_path}")")
-
-#     if [ "$nvmrc_node_version" = "N/A" ]; then
-#       nvm install
-#     elif [ "$nvmrc_node_version" != "$node_version" ]; then
-#       nvm use
-#     fi
-#   elif [ "$node_version" != "$(nvm version default)" ]; then
-#     echo "Reverting to nvm default version"
-#     nvm use default
-#   fi
-# }
-# add-zsh-hook chpwd load-nvmrc
-# load-nvmrc
-
-# [ -s "$HOME/dev/nurx/api/.bashrc" ] && \. "$HOME/dev/nurx/api/.bashrc"
+# To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
+[[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
