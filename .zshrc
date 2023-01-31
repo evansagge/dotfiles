@@ -1,3 +1,9 @@
+alias tmux="tmux -2 -u"
+if which tmux 2>&1 >/dev/null; then
+  test -z "$TMUX" && (tmux attach || tmux new-session)
+fi
+
+
 # Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.zshrc.
 # Initialization code that may require console input (password prompts, [y/n]
 # confirmations, etc.) must go above this block; everything else may go below.
@@ -5,32 +11,31 @@ if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]
   source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
 fi
 
-if [[ -r /usr/local/lib/python3.8/dist-packages/ ]];
-then
-  export PYTHON3_PACKAGES='/usr/local/lib/python3.8/dist-packages/'
-elif [[ -r /usr/local/lib/python3.8/site-packages/ ]];
-then
-  export PYTHON3_PACKAGES='/usr/local/lib/python3.8/site-packages/'
-elif [[ -r $HOME/Library/Python/3.8/lib/python/site-packages ]];
-then
-  export PYTHON3_PACKAGES=$HOME/Library/Python/3.8/lib/python/site-packages
-fi
+# Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.zshrc.
+# Initialization code that may require console input (password prompts, [y/n]
+# confirmations, etc.) must go above this block; everything else may go below.
+# if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
+#   source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
+# fi
+
+# if [[ -r /usr/local/lib/python3.8/dist-packages/ ]];
+# then
+#   export PYTHON3_PACKAGES='/usr/local/lib/python3.8/dist-packages/'
+# elif [[ -r /usr/local/lib/python3.8/site-packages/ ]];
+# then
+#   export PYTHON3_PACKAGES='/usr/local/lib/python3.8/site-packages/'
+# elif [[ -r $HOME/Library/Python/3.8/lib/python/site-packages ]];
+# then
+#   export PYTHON3_PACKAGES=$HOME/Library/Python/3.8/lib/python/site-packages
+# fi
 
 # If you come from bash you might have to change your $PATH.
 export PATH=/usr/local/bin:$HOME/Library/Python/3.8/bin:$PATH
 
-export GITHUB_ACCESS_TOKEN="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"
 export GITHUB_USERNAME="evansagge"
-
-alias tmux="tmux -2 -u"
-if which tmux 2>&1 >/dev/null; then
-  test -z "$TMUX" && (tmux attach || tmux new-session)
-fi
 
 # Path to your oh-my-zsh installation.
 export ZSH="$HOME/.oh-my-zsh"
-# export ZSH_THEME="candy"
-export ZSH_THEME="juanghurtado"
 export ZSH_THEME="powerlevel10k/powerlevel10k"
 
 
@@ -121,10 +126,10 @@ fi
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
 
-[ -s "/Users/evan.sagge/.scm_breeze/scm_breeze.sh" ] && source "/Users/evan.sagge/.scm_breeze/scm_breeze.sh"
 
 # heroku autocomplete setup
 HEROKU_AC_ZSH_SETUP_PATH=/Users/evan.sagge/Library/Caches/heroku/autocomplete/zsh_setup && test -f $HEROKU_AC_ZSH_SETUP_PATH && source $HEROKU_AC_ZSH_SETUP_PATH;
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
+
